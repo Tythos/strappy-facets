@@ -1,0 +1,32 @@
+<style>
+    .Form {
+    }
+</style>
+<div class="Form">
+    <table>
+        <tbody>
+            {{#each fields}}
+                <tr>
+                    <td>{{label}}</td>
+                    <td>
+                        {{#ifeq type "text"}}<input type="text" name="{{name}}"/>{{/ifeq}}
+                        {{#ifeq type "protected"}}<input type="password" name="{{name}}"/>{{/ifeq}}
+                        {{#ifeq type "radio"}}
+                            {{#each options}}
+                                <div>
+                                    <input type="radio" name="{{../name}}" value="{{../name}}{{@index}}"/>
+                                    <label>{{this}}</label>
+                                </div>
+                            {{/each}}
+                        {{/ifeq}}
+                        {{#ifeq type "checkbox"}}<input type="checkbox" name="{{name}}"/>{{/ifeq}}
+                    </td>
+                </tr>
+            {{/each}}
+            <tr>
+                <td></td>
+                <td class="FormSubmitCell"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

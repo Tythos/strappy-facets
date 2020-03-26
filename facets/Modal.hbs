@@ -1,0 +1,60 @@
+<style>
+    .ModalBg {
+        background-color: rgba(0, 0, 0, 0.25);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+
+    .ModalWin {
+        position: absolute;
+        background-color: #fff;
+        z-index: 2;
+        font-family: sans-serif;
+        border-radius: 8px;
+        border: 2px solid #bbb;
+        box-shadow: 4px 4px 8px #777;
+        display: grid;
+        grid-template-rows: 30% auto 30%;
+    }
+
+    .ModalTitle {
+        font-size: 1.5em;
+        padding: 16px 8px;
+        border-bottom: 1px solid #bbb;
+    }
+
+    .ModalClose {
+        float: right;
+        cursor: pointer;
+        color: #bbb;
+    }
+
+    .ModalClose:hover {
+        color: #777;
+    }
+
+    .ModalBody {
+        font-size: 0.8em;
+        padding: 8px 8px 16px 8px;
+        border-bottom: 1px solid #bbb;
+    }
+
+    .ModalButtons {
+        padding: 8px;
+    }
+</style>
+<div class="ModalBg"></div>
+<div class="ModalWin" style="width:{{width}}px;height:{{height}}px;">
+    <div class="ModalTitle">
+        {{title}}
+        <div class="ModalClose">&times;</div>
+    </div>
+    <div class="ModalBody">{{body}}</div>
+    <div class="ModalButtons">
+        <table><tbody><tr></tr></tbody></table>
+    </div>
+</div>

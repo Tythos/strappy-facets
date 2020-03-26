@@ -1,0 +1,40 @@
+<style>
+    .InputGroup {
+        border: 1px solid #ced4da;
+        width: max-content;
+        border-radius: 4px;
+        overflow: hidden;
+        font-family: sans-serif;
+        font-size: 0.8em;
+    }
+
+    .InputGroup input {
+        border-width: 0px;
+        padding: 4px 8px;
+    }
+
+    .InputPrefix, .InputSuffix {
+        color: #898f95;
+        background-color: #e9ecef;
+        padding: 4px 8px;
+    }
+
+    .InputPrefix {
+        border-right: 1px solid #ced4da;
+    }
+
+    .InputSuffix {
+        border-left: 1px solid #ced4da;
+    }
+</style>
+<div class="InputGroup">
+    <table cellspacing="0" cellpadding="0">
+        <tbody>
+            <tr>
+                {{#if prefix}}<td class="InputPrefix">{{prefix}}</td>{{/if}}
+                <td><input type="text" placeholder="{{default}}"/></td>
+                {{#if suffix}}<td class="InputSuffix">{{suffix}}</td>{{/if}}
+            </tr>            
+        </tbody>
+    </table>
+</div>

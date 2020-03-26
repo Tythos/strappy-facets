@@ -1,0 +1,23 @@
+<style>
+    .ListGroup {
+        border-radius: 4px;
+        border: 1px solid #bbb;
+        font-family: sans-serif;
+        width: max-content;
+    }
+
+    .ListGroupItem {
+        padding: 8px 16px;
+        border-bottom: 1px solid #bbb;
+        font-size: 0.8em;
+    }
+
+    .ListGroupItemLast {
+        border-width: 0px;
+    }
+</style>
+<div class="ListGroup">
+    {{#each items}}
+        <div class="ListGroupItem {{#if @last}}ListGroupItemLast{{/if}}">{{this}}</div>
+    {{/each}}
+</div>

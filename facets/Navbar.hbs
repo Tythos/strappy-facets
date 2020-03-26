@@ -1,0 +1,34 @@
+<style>
+    .Navbar {
+        display: grid;
+        font-family: sans-serif;
+        grid-auto-flow: column;
+    }
+
+    .NavbarLogo {
+        margin: 5px;
+    }
+
+    .NavbarTitle {
+        font-weight: bold;
+        font-size: 1.2em;
+        padding: 12px 0 0 8px;
+        width: max-content;
+    }
+
+    .Navbar .NavItem {
+        margin-top: 8px;
+    }
+
+    .NavbarSearch {
+        margin: 10px 10px 0 10px;
+    }
+</style>
+<div class="Navbar" style="height:{{size}}px;background-color:{{complement}};">
+    {{#if logo}}<img class="NavbarLogo" src="{{logo}}" border="0" style="height:{{logosize}}px"/>{{/if}}
+    {{#if title}}<div class="NavbarTitle" style="color:{{primary}};">{{title}}</div>{{/if}}
+    <div class="NavbarPlaceholder"></div>
+    {{#if searchable}}
+        <div class="NavbarSearch"></div>
+    {{/if}}
+</div>

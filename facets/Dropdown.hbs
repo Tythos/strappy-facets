@@ -1,0 +1,63 @@
+<style>
+    .Dropdown {
+        position: relative;
+        font-family: sans-serif;
+        font-size: 0.9em;
+    }
+
+    .DropdownTitle {
+        color: #fff;
+        padding: 6px 12px;
+        border: 0px solid #fff;
+        border-radius: 4px;
+        cursor: pointer;
+        width: max-content;
+    }
+    
+    .DropdownMenu {
+        position: absolute;
+        border: 1px solid #ddd;
+        background-color: #fff;
+    }
+
+    .DropdownItem {
+        padding: 8px 16px;
+        cursor: pointer;
+    }
+
+    .DropdownItem:hover {
+        background-color: #eee;
+    }
+
+    .DropdownPRIMARY .DropdownTitle { background-color: #007bff; }
+    .DropdownPRIMARY .DropdownTitle:hover { background-color: #006bef; }
+
+    .DropdownSECONDARY .DropdownTitle { background-color: #5a6268; }
+    .DropdownSECONDARY .DropdownTitle:hover { background-color: #4a5258; }
+
+    .DropdownSUCCESS .DropdownTitle { background-color: #218838; }
+    .DropdownSUCCESS .DropdownTitle:hover { background-color: #117828; }
+    
+    .DropdownWARNING .DropdownTitle { background-color: #e0a800; color: #000; }
+    .DropdownWARNING .DropdownTitle:hover { background-color: #d09800; }
+
+    .DropdownDANGER .DropdownTitle { background-color: #c82333; }
+    .DropdownDANGER .DropdownTitle:hover { background-color: #b81323; }
+
+    .DropdownINFO .DropdownTitle { background-color: #17a2b8; }
+    .DropdownINFO .DropdownTitle:hover { background-color: #0792a8; }
+
+    .DropdownLIGHT .DropdownTitle { background-color: #e2e6ea; color: #000; }
+    .DropdownLIGHT .DropdownTitle:hover { background-color: #d2d6da; }
+
+    .DropdownDARK .DropdownTitle { background-color: #23272b; }
+    .DropdownDARK .DropdownTitle:hover { background-color: #13171b; }
+</style>
+<div class="Dropdown Dropdown{{upper variant}}">
+    <div class="DropdownTitle">{{title}} &#9662;</div>
+    <div class="DropdownMenu" style="display:none">
+        {{#each items}}
+            <div class="DropdownItem DropdownItem{{@index}}">{{this}}</div>
+        {{/each}}
+    </div>
+</div>

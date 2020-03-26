@@ -1,0 +1,8 @@
+<img src="{{src}}" border="0" style="
+    {{#if width}}width:{{width}}px;{{/if}}
+    {{#if height}}height:{{height}}px;{{/if}}
+    {{#if rounded}}
+        {{#ifeq rounded "elliptical"}}border-radius:50%;{{/ifeq}}
+        {{#ifneq rounded "elliptical"}}border-radius:{{rounded}}px;{{/ifneq}}
+    {{/if}}
+"/>

@@ -1,0 +1,22 @@
+<style>
+    .NavItem {
+        width: max-content;
+        padding: 8px 17px;
+        font-family: sans-serif;
+        font-size: 0.8em;
+    }
+
+    .NavItemEnabled {
+        color: #007bff;
+        cursor: pointer;
+    }
+
+    .NavItemEnabled:hover {
+        color: #0056b3;
+    }
+
+    .NavItemDisabled {
+        color: #777;
+    }
+</style>
+<div class="NavItem {{#if disabled}}NavItemDisabled{{else}}NavItemEnabled{{/if}}">{{label}}</div>
