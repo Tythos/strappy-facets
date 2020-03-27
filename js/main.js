@@ -31,10 +31,11 @@ let deps = [
     "../facets/Progress",
     "../facets/Spinner",
     "../facets/Table",
-    "../facets/Tabs"
+    "../facets/Tabs",
+    "../facets/Toast"
 ];
 
-require(deps, function(Accordion, Alert, Badge, Breadcrumbs, Button, ButtonGroup, Card, Carousel, Dropdown, Form, InputGroup, Image, Figure, Jumbotron, ListGroup, Modal, Nav, Navbar, Tooltip, Pagination, Progress, Spinner, Table, Tabs) {
+require(deps, function(Accordion, Alert, Badge, Breadcrumbs, Button, ButtonGroup, Card, Carousel, Dropdown, Form, InputGroup, Image, Figure, Jumbotron, ListGroup, Modal, Nav, Navbar, Tooltip, Pagination, Progress, Spinner, Table, Tabs, Toast) {
     function testAccordion() {
             window.document.body.appendChild((new Accordion())
             .card("Click Me!", (new Card()).param("text", "Hello! I'm the first one"))
@@ -296,5 +297,15 @@ require(deps, function(Accordion, Alert, Badge, Breadcrumbs, Button, ButtonGroup
         );
     }
 
-    testTabs();
+    function testToast() {
+        window.document.body.appendChild((new Toast())
+            .param("emitted", new Date((new Date()).valueOf() + 1e3))
+            .param("title", "A Toast!")
+            .param("body", "To your heatlh, wise one.")
+            .param("timeout", 2000)
+            .render()
+        );
+    }
+
+    testToast();
 });
