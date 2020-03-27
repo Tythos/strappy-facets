@@ -26,8 +26,8 @@ define(function(require, exports, module) {
             */
             if (this.parent == null && this.subdom != null) {
                 let bcr = this.subdom.getBoundingClientRect();
-                this.subdom.style.left = event.clientX + "px";
-                this.subdom.style.top = (event.clientY - bcr.height) + "px";
+                this.subdom.style.left = (event.clientX + 0.5 * bcr.height) + "px";
+                this.subdom.style.top = event.clientY + "px";
             }
         }
 
@@ -37,10 +37,16 @@ define(function(require, exports, module) {
             */
             this.render();
             this.subdom.style.position = "absolute";
+            window.document.body.appendChild(this.subdom);
             if (parent == null) {
-                window.document.body.appendChild(this.subdom);
-                this.subdom.style.top = 0 + "px";
                 this.subdom.style.left = 0 + "px";
+                this.subdom.style.top = 0 + "px";
+            } else {
+                this.parent = parent;
+                let bcr = this.parent.getBoundingClientRect();
+                let bcr2 = this.subdom.getBoundingClientRect();
+                this.subdom.style.left = (bcr.left + bcr.width) + "px";
+                this.subdom.style.top = (bcr.top + 0.5 * bcr.height - 0.5 * bcr2.height) + "px";
             }
         }
 

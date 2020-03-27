@@ -1,0 +1,40 @@
+<style>
+        .Pagination {
+            display: grid;
+            grid-auto-flow: column;
+            border-radius: 4px;
+            border: 1px solid #bbb;
+            overflow: hidden;
+            font-family: sans-serif;
+        }
+
+        .PaginationItem {
+            color: #007bff;
+            background-color: #fff;
+            border-right: 1px solid #bbb;
+            padding: 4px 8px;
+            cursor: pointer;
+        }
+
+        .PaginationItem:hover {
+            background-color: #bbb;
+        }
+
+        .PaginationCurrent {
+            color: #fff;
+            background-color: #007bff;
+        }
+
+        .PaginationRhs {
+            border-right-width: 0;
+        }
+</style>
+<div class="Pagination">
+    {{#each n}}
+        <div class="PaginationItem
+            {{#if @first}}PaginationLhs{{/if}}
+            {{#if @last}}PaginationRhs{{/if}}
+            {{#ifeq @index ../current}}PaginationCurrent{{/ifeq}}
+        ">{{this}}</div>
+    {{/each}}
+</div>

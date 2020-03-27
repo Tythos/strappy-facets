@@ -7,6 +7,8 @@ define(function(require, exports, module) {
     handlebars.registerHelper("lower", function(str) { return str.toLowerCase(); });
     handlebars.registerHelper("ifeq", function(lhs, rhs, options) { return (lhs == rhs) ? options.fn(this) : options.inverse(this); });
     handlebars.registerHelper("ifneq", function(lhs, rhs, options) { return (lhs != rhs) ? options.fn(this) : options.inverse(this); });
+    handlebars.registerHelper("ifeven", function(arg, options) { return (arg % 2 == 0) ? options.fn(this) : options.inverse(this); });
+    handlebars.registerHelper("ifodd", function(arg, options) { return (arg % 2 == 1) ? options.fn(this) : options.inverse(this); });
 
     class Facet {
         constructor(template) {

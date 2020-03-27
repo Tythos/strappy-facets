@@ -1,0 +1,72 @@
+<style>
+    .Progress {
+        border-radius: 4px;
+        overflow: hidden;
+        background-color: #e9ecef;
+        width: 256px;
+        height: 16px;
+        position: relative;
+    }
+
+    .ProgressFilled {
+        height: 16px;
+        color: #fff;
+        font-family: sans-serif;
+        text-align: center;
+        font-size: 0.8em;
+    }
+
+    .ProgressFilledPRIMARY {
+        background-color: #007bff;
+    }
+
+    .ProgressFilledSECONDARY {
+        background-color: #5a6268;
+    }
+
+    .ProgressFilledSUCCESS {
+        background-color: #218838;
+    }
+
+    .ProgressFilledWARNING {
+        background-color: #e0a800;
+        color: #000;
+    }
+
+    .ProgressFilledDANGER {
+        background-color: #c82333;
+    }
+
+    .ProgressFilledINFO {
+        background-color: #17a2b8;
+    }
+
+    .ProgressFilledLIGHT {
+        background-color: #e2e6ea;
+        color: #000;
+    }
+
+    .ProgressFilledDARK {
+        background-color: #23272b;
+    }
+
+    .ProgressStripes {
+        position: absolute;
+        top: 0;
+        height: 16px;
+        background-image: repeating-linear-gradient(
+            -45deg,
+            transparent,
+            transparent 8px,
+            rgba(50,50,50,0.25) 8px,
+            rgba(50,50,50,0.25) 16px);
+    }
+</style>
+<div class="Progress">
+    {{#if striped}}
+        <div class="ProgressStripes" style="width:{{percent}}%"></div>
+    {{/if}}
+    <div class="ProgressFilled ProgressFilled{{upper variant}}" style="width:{{percent}}%">
+        {{#if islabeled}}{{percent}}%{{/if}}
+    </div>
+</div>

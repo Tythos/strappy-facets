@@ -1,23 +1,85 @@
 <style>
-    .TableFactor tr:hover {
-        background-color: #000;
+    .Table {
+        border-collapse: collapse;
+        font-family: sans-serif;
+        font-size: 0.9em;
+    }
+
+    /* --- LIGHT variant --- */
+
+    .TableLIGHT th {
+        border-top: 1px solid #ccc;
+    }
+
+    .TableLIGHT td, .TableLIGHT th {
+        padding: 4px 8px;
+        border-bottom: 1px solid #ccc;
+        border-right: 1px solid #ccc;
+    }
+
+    .TableLIGHT tr:hover {
+        background-color: #ddd;
         cursor: pointer;
     }
 
-    .TableFactor {
-        border-collapse: collapse;
+    .TableLIGHT .TableRowEven {
+        background-color: #fff;
     }
 
-    .TableFactor td {
-        padding: 3px;
+    .TableLIGHT .TableRowOdd, .TableLIGHT .TableHeader {
+        background-color: #eee;
+    }
+
+    .TableLIGHT .TableColNdx {
+        border-left: 1px solid #ccc;
+    }
+
+    /* --- DARK variant --- */
+
+    .TableDARK {
+        color: #fff;
+    }
+
+    .TableDARK td, .TableDARK th {
+        padding: 4px 8px;
+        border-bottom: 1px solid #454d55;
+        border-right: 1px solid #454d55;
+    }
+
+    .TableDARK tr:hover {
+        background-color: #666;
+        cursor: pointer;
+    }
+
+    .TableDARK .TableRowEven {
+        background-color: #444;
+    }
+
+    .TableDARK .TableRowOdd, .TableDARK .TableHeader {
+        background-color: #555;
+    }
+
+    .TableDARK .TableColNdx {
+        border-left: 1px solid #454d55;
     }
 </style>
-<table class="TableFactor">
+<table class="Table Table{{upper variant}}">
+    <thead>
+        <tr class="TableHeader">
+            {{#each headers}}
+                <th class="{{#ifeq @index 0}}TableColNdx{{/ifeq}}">{{this}}</th>
+            {{/each}}
+        </tr>
+    </thead>
     <tbody>
-        {{#each this}}
-            <tr>
-                <td>{{@key}}</td>
-                <td>{{this}}</td>
+        {{#each rows}}
+            <tr class="{{#if ../isbanded}}
+                {{#ifeven @index}}TableRowEven{{/ifeven}}
+                {{#ifodd @index}}TableRowOdd{{/ifodd}}
+            {{/if}}">
+                {{#each this}}
+                    <td class="{{#ifeq @index 0}}TableColNdx{{/ifeq}}">{{this}}</td>
+                {{/each}}
             </tr>
         {{/each}}
     </tbody>

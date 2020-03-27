@@ -26,10 +26,15 @@ let deps = [
     "../facets/Modal",
     "../facets/Nav",
     "../facets/Navbar",
-    "../facets/Tooltip"
+    "../facets/Tooltip",
+    "../facets/Pagination",
+    "../facets/Progress",
+    "../facets/Spinner",
+    "../facets/Table",
+    "../facets/Tabs"
 ];
 
-require(deps, function(Accordion, Alert, Badge, Breadcrumbs, Button, ButtonGroup, Card, Carousel, Dropdown, Form, InputGroup, Image, Figure, Jumbotron, ListGroup, Modal, Nav, Navbar, Tooltip) {
+require(deps, function(Accordion, Alert, Badge, Breadcrumbs, Button, ButtonGroup, Card, Carousel, Dropdown, Form, InputGroup, Image, Figure, Jumbotron, ListGroup, Modal, Nav, Navbar, Tooltip, Pagination, Progress, Spinner, Table, Tabs) {
     function testAccordion() {
             window.document.body.appendChild((new Accordion())
             .card("Click Me!", (new Card()).param("text", "Hello! I'm the first one"))
@@ -236,11 +241,60 @@ require(deps, function(Accordion, Alert, Badge, Breadcrumbs, Button, ButtonGroup
         let tt = (new Tooltip())
             .param("content", "What'cha lookin at?")
             .show();
-        /*let tt2 = (new Tooltip())
+        let tt2 = (new Tooltip())
             .param("content", "Oh, hey, it's a button!")
             .param("variant", "dark")
-            .show(btn);*/
+            .show(btn);
     }
 
-    testTooltip();
+    function testPagination() {
+        window.document.body.appendChild((new Pagination())
+            .param("count", 5)
+            .param("current", 2)
+            .render()
+        );
+    }
+
+    function testProgress() {
+        window.document.body.appendChild((new Progress())
+            .param("percent", 60)
+            .param("islabeled", true)
+            .param("variant", "success")
+            .param("striped", true)
+            .render()
+        );
+    }
+
+    function testSpinner() {
+        window.document.body.appendChild((new Spinner())
+            .param("variant", "primary")
+            .param("size", 16)
+            .render()
+        );
+    }
+
+    function testTable() {
+        window.document.body.appendChild((new Table())
+            .param("headers", ["#", "First Name", "Last Name", "Username"])
+            .row([1, "Mark", "Otto", "@mdo"])
+            .row([2, "Jacob", "Thornton", "@fat"])
+            .row([3, "Larry the Bird", "", "@twitter"])
+            .row([4, "Kirk", "McKirkyface", "@kirk"])
+            .row([3, "Thorpe", "McThorpyface", "@thorpe"])
+            .param("isbanded", true)
+            .param("variant", "dark")
+            .render()
+        );
+    }
+
+    function testTabs() {
+        window.document.body.appendChild((new Tabs())
+            .item("Home", "Thou art as tyrannous, so as thou art, As those whose beauties proudly make them cruel; For well thou know'st to my dear doting heart Thou art the fairest and most precious jewel. Yet, in good faith, some say that thee behold, Thy face hath not the power to make love groan; To say they err I dare not be so bold, Although I swear it to myself alone. And to be sure that is not false I swear, A thousand groans, but thinking on thy face,")
+            .item("Profile", "Against my love shall be as I am now, With Time's injurious hand crush'd and o'erworn; When hours have drain'd his blood and fill'd his brow With lines and wrinkles; when his youthful morn Hath travell'd on to age's steepy night; And all those beauties whereof now he's king Are vanishing, or vanished out of sight, Stealing away the treasure of his spring; For such a time do I now fortify Against confounding age's cruel knife,")
+            .item("Contact", "Look in thy glass and tell the face thou viewest Now is the time that face should form another; Whose fresh repair if now thou not renewest, Thou dost beguile the world, unbless some mother. For where is she so fair whose unear'd womb Disdains the tillage of thy husbandry? Or who is he so fond will be the tomb, Of his self-love to stop posterity? Thou art thy mother's glass and she in thee Calls back the lovely April of her prime;")
+            .render()
+        );
+    }
+
+    testTabs();
 });

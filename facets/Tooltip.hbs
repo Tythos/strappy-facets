@@ -1,24 +1,51 @@
 <style>
-    .Tooltip {
+    .TooltipBody {
         padding: 4px 8px;
-        border-radius: 4px;
         border-width: 1px;
         border-style: solid;
-        opacity: 0.8;
         font-family: sans-serif;
         font-size: 0.6em;
+        border-radius: 4px;
+        border-width: 0;
     }
 
-    .TooltipLIGHT {
-        border-color: #bbb;
+    .TooltipLIGHT .TooltipBody {
+        color: #eee;
+        background-color: #bbb;
+    }
+
+    .TooltipLIGHT .TooltipArrowContent {
         color: #bbb;
-        background-color: #eee;
     }
 
-    .TooltipDARK {
-        border-color: #bbb;
+    .TooltipDARK .TooltipBody {
         color: #bbb;
         background-color: #333;
     }
+
+    .TooltipDARK .TooltipArrowContent {
+        color: #333;
+    }
+
+    .TooltipArrowAnchor {
+        position: relative;
+    }
+
+    .TooltipArrowContent {
+        position: absolute;
+        font-size: 12px;
+        top: 2px;
+    }
+
+    .TooltipBody {
+        margin-left: 8px;
+    }
 </style>
-<div class="Tooltip Tooltip{{upper variant}}">{{content}}</div>
+<div class="Tooltip Tooltip{{upper variant}}">
+    <div class="TooltipArrowAnchor">
+        <div class="TooltipArrowContent">&#x25C0;</div>
+    </div>
+    <div class="TooltipBody">
+        {{content}}
+    </div>
+</div>
